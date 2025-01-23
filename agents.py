@@ -1,11 +1,14 @@
 from crewai import Agent
 from textwrap import dedent
-from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 class CustomAgents:
     def __init__(self):
         # Initialize a GPT-4 model from ChatOpenAI for generating and analyzing content
-        self.gpt_model = ChatOpenAI(model_name="gpt-4", temperature=0.7)
+        self.gpt_model = ChatGoogleGenerativeAI(model="gemini-pro",
+                             verbose = True,
+                             temperature = 0.6,
+                             google_api_key="AIzaSyBwjGCCdC1zZL2uvvs8HyQOMQtKPO0u49s")
 
     def business_analyst_agent(self):
         """An agent specialized in analyzing business processes to identify automation opportunities."""
